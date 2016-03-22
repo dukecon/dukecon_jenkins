@@ -4,7 +4,7 @@
 
 mavenJob ("dukecon") {
     scm {
-        github ("dukecon/dukecon", branch)
+        github ("dukecon/dukecon")
     }
     triggers {
         scm("H/10 * * * *")
