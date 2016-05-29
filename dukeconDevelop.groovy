@@ -2,6 +2,7 @@
  * Created by ascheman on 24.01.16.
  */
 
+String mavenVersion = 'maven-3.3.9'
 String branch = "develop"
 
 mavenJob ("dukecon_html5_${branch}") {
@@ -11,7 +12,7 @@ mavenJob ("dukecon_html5_${branch}") {
     triggers {
         scm("H/10 * * * *")
     }
-    mavenInstallation('maven-3.2.5')
+    mavenInstallation(mavenVersion)
     goals ('clean install')
 }
 
@@ -26,7 +27,7 @@ mavenJob ("dukecon_server_${branch}") {
     environmentVariables {
         env('JAVA_HOME', '/usr/lib/jvm/java-8-oracle')
     }
-    mavenInstallation('maven-3.2.5')
+    mavenInstallation(mavenVersion)
     goals ('clean install -Djvm="${WORKSPACE}/xvfb.sh"')
 }
 
@@ -41,7 +42,7 @@ mavenJob ("dukecon_server_docker_${branch}") {
     environmentVariables {
         env('DOCKER_HOST', 'unix:///var/run/docker.sock')
     }
-    mavenInstallation('maven-3.2.5')
+    mavenInstallation(mavenVersion)
     goals ('clean install')
 }
 
