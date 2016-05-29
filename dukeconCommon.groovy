@@ -9,6 +9,5 @@ mavenJob ("dukecon") {
     triggers {
         scm("H/10 * * * *")
     }
-    mavenInstallation('maven-3.2.5')
     goals ('clean install')
 }
