@@ -24,9 +24,6 @@ mavenJob ("dukecon_server_${branch}") {
         scm("H/10 * * * *")
         upstream ("dukecon_html5_${branch}", 'SUCCESS')
     }
-    environmentVariables {
-        env('JAVA_HOME', '/usr/lib/jvm/java-8-oracle')
-    }
     mavenInstallation(mavenVersion)
     goals ('clean install -Djvm="${WORKSPACE}/xvfb.sh"')
 }
